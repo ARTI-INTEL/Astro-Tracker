@@ -168,13 +168,13 @@ body {
     box-shadow: -2px 0 10px rgba(0,0,0,0.5);
   }
 
-  /* When active → slide in */
   .menu-buttons.active {
     right: 0;
   }
 
-  /* Close button */
+  /* ❌ Close button — ONLY on mobile */
   .close-btn {
+    display: block;
     position: absolute;
     top: 15px;
     right: 20px;
@@ -216,6 +216,11 @@ body {
   .bars p {
     font-size: 0.9rem;
   }
+}
+
+/* Hide close button on desktop */
+.close-btn {
+  display: none;
 }
 
 .mode-switch button.active {
@@ -266,4 +271,75 @@ label {
   color: #7df9ff;
   font-weight: 600;
   font-size: 0.95rem;
+}
+
+/* Hide close button by default (desktop) */
+.close-btn {
+  display: none;
+}
+
+/* Responsive mobile styles */
+@media (max-width: 768px) {
+  /* Show burger icon */
+  #menuToggle {
+    display: block;
+  }
+
+  /* Slide-out menu panel */
+  .menu-buttons {
+    position: fixed;
+    top: 0;
+    right: -280px;
+    width: 250px;
+    height: 100%;
+    background: #1a1a2e;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 60px;
+    gap: 25px;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Active slide-in */
+  .menu-buttons.active {
+    right: 0;
+  }
+
+  /* Show ❌ close button only on mobile */
+  .close-btn {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+
+  .close-btn:hover {
+    color: #00eaff;
+  }
+
+  /* Mobile link styling */
+  .menu-btn {
+    font-size: 1.1rem;
+    color: #fff;
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+}
+
+/* Optional hover glow */
+.menu-btn:hover {
+  color: #00eaff;
+  text-shadow: 0 0 8px #00eaff;
 }
