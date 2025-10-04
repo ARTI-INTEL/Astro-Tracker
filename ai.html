@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astro Tracker - AI Assistant</title>
+  <link rel="icon" href="images/icon.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="logo"><i class='bx bx-rocket'></i> Astro Tracker</div>
+    
+    <!-- Hamburger icon -->
+    <i class='bx bx-menu' id="menuToggle"></i>
+    
+    <!-- Hidden navigation links -->
+    <nav class="menu-buttons" id="navMenu">
+      <a href="index.html" class="menu-btn"><i class='bx bx-bot'></i> Home</a>
+      <a href="sleep.html" class="menu-btn"><i class='bx bx-moon'></i> Sleep Tracker</a>
+      <a href="workout.html" class="menu-btn"><i class='bx bx-dumbbell'></i> Workout Tracker</a>
+      <a href="diet.html" class="menu-btn"><i class='bx bx-bowl-rice'></i> Diet Tracker</a>
+      <a href="goals.html" class="menu-btn"><i class='bx bx-medal'></i> Goals</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <section class="card ai-section">
+      <h2><i class='bx bx-bot' ></i> AI Health Assistant</h2>
+      <p>Get instant personalized wellness advice.</p>
+
+      <div id="adviceBox" class="highlight">
+        Click below to generate your daily AI health tip
+      </div>
+      <button onclick="generateAdvice()" class="btn"><i class='bx bx-star' ></i>Generate Advice</button>
+    </section>
+  </main>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>

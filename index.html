@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Astro Tracker</title>
+  <link rel="icon" href="images/icon.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <header class="navbar">
+    <div class="logo"><i class='bx bx-rocket'></i> Astro Tracker</div>
+
+    <!-- Hamburger icon -->
+    <i class='bx bx-menu' id="menuToggle"></i>
+
+    <!-- Slide-out menu -->
+    <nav class="menu-buttons" id="navMenu">
+      <div class="close-btn" id="closeMenu"><i class='bx bx-x'></i></div>
+      <a href="index.html" class="menu-btn"><i class='bx bx-home'></i> Home</a>
+      <a href="sleep.html" class="menu-btn"><i class='bx bx-moon'></i> Sleep Tracker</a>
+      <a href="workout.html" class="menu-btn"><i class='bx bx-dumbbell'></i> Workout Tracker</a>
+      <a href="diet.html" class="menu-btn"><i class='bx bx-bowl-rice'></i> Diet Tracker</a>
+      <a href="goals.html" class="menu-btn"><i class='bx bx-medal'></i> Goals</a>
+      <a href="ai.html" class="menu-btn"><i class='bx bx-bot'></i> AI Assistant</a>
+    </nav>
+  </header>
+
+
+  <!-- 🌙 Main Dashboard Sections -->
+  <main class="content">
+   <!-- Circadian Rhythm Simulator -->
+<section class="card">
+  <h2><i class='bx bx-sun' ></i> Heart Health</h2>
+  <p>Adjust your light exposure and sleep cycles based on your environment.</p>
+
+  <div class="mode-switch">
+    <button id="earthBtn" class="active">Earth Mode</button>
+    <button id="astroBtn"><i class='bx bx-rocket' ></i> Astronaut Mode</button>
+  </div>
+
+  <!-- Display cycle info dynamically -->
+  <div id="cycleInfo">
+    <p><em>Earth Light Cycle: 7am – 11pm</em></p>
+    <ul>
+      <li><span class="bold">Light Exposure: </span>Morning sunlight (7–9am)</li>
+      <li><span class="bold">Sleep Window:</span> 11pm – 7am</li>
+      <li><span class="bold">Evening:</span> Reduce blue light after 9pm</li>
+    </ul>
+  </div>
+
+  <div class="actions">
+    <button class="btn">Light Exposure Settings</button>
+    <button class="btn">Sleep Window</button>
+  </div>
+</section>
+
+
+    <!-- Well-Being Dashboard -->
+    <section class="card">
+      <h2><i class='bx bx-pulse' ></i> Well-Being Dashboard</h2>
+      <p><span class="bold">Your Sleep Health Score:</span> <span class="score">87</span></p>
+      <div class="bars">
+        <p><span class="bold">Sleep Quality:</span> <span>92%</span></p>
+        <p><span class="bold">Physical Activity:</span> <span>78%</span></p>
+        <p><span class="bold">Hydration:</span> <span>66%</span></p>
+        <p><span class="bold">Nutrition:</span> <span>82%</span></p>
+      </div>
+    </section>
+
+    <!-- AI Health Assistant -->
+    <section class="card ai-section">
+      <h2><i class='bx bx-bot' ></i> AI Health Assistant</h2>
+      <p>Personalized recommendations from NASA-based circadian research.</p>
+      <div id="recommendationBox" class="highlight">
+        Click “Generate Advice” to get your recommendation
+      </div>
+      <button onclick="generateAdvice()" class="btn">Generate Advice</button>
+    </section>
+  </main>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>

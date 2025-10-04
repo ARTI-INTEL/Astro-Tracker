@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet Tracker</title>
+  <link rel="icon" href="images/icon.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo"><i class='bx bx-rocket'></i> Astro Tracker</div>
+    
+    <!-- Hamburger icon -->
+    <i class='bx bx-menu' id="menuToggle"></i>
+    
+    <!-- Hidden navigation links -->
+    <nav class="menu-buttons" id="navMenu">
+      <a href="index.html" class="menu-btn"><i class='bx bx-bot'></i> Home</a>
+      <a href="sleep.html" class="menu-btn"><i class='bx bx-moon'></i> Sleep Tracker</a>
+      <a href="workout.html" class="menu-btn"><i class='bx bx-dumbbell'></i> Workout Tracker</a>
+      <a href="goals.html" class="menu-btn"><i class='bx bx-medal'></i> Goals</a>
+      <a href="ai.html" class="menu-btn"><i class='bx bx-bot'></i> AI Assistant</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <section class="card">
+      <h2>Diet Tracker <i class='bx bx-bowl-rice'></i></h2>
+      <p>Log your meals and estimate your daily calorie intake.</p>
+
+      <label><span class="bold">Meal:</span>
+        <input type="text" id="meal" placeholder="e.g., Chicken Salad">
+      </label> <br>
+
+      <label><span class="bold">Calories:</span>
+        <input type="number" id="calories" placeholder="e.g., 350">
+      </label> <br>
+
+      <button onclick="addMeal()" class="btn">
+        <i class='bx bx-add-to-queue'></i> Add Meal
+      </button> <br>
+
+      <ul id="mealList"></ul>
+      <p id="totalCalories" class="highlight"></p>
+
+      <hr>
+      <p><strong>Calorie Goal:</strong> <span id="calorieGoalDisplay"></span></p>
+    </section>
+  </main>
+
+  <script src="scripts/script.js"></script>
+  <script>
+    // Refresh the display when diet.html loads
+    window.addEventListener("DOMContentLoaded", () => {
+      loadData(); // from script.js
+      updateMealList();
+
+      const summary = getDailySummary();
+      document.getElementById("totalCalories").textContent = `Total Calories Consumed: ${summary.caloriesConsumed}`;
+      document.getElementById("calorieGoalDisplay").textContent = `${summary.calorieGoal} Cal/day`;
+    });
+  </script>
+</body>
+</html>

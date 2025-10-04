@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Goals and Achivements</title>
+  <link rel="icon" href="images/icon.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="navbar">
+    <div class="logo"><i class='bx bx-rocket'></i> Astro Tracker</div>
+    
+    <!-- Hamburger icon -->
+    <i class='bx bx-menu' id="menuToggle"></i>
+    
+    <!-- Hidden navigation links -->
+    <nav class="menu-buttons" id="navMenu">
+      <a href="index.html" class="menu-btn"><i class='bx bx-bot'></i> Home</a>
+      <a href="sleep.html" class="menu-btn"><i class='bx bx-moon'></i> Sleep Tracker</a>
+      <a href="workout.html" class="menu-btn"><i class='bx bx-dumbbell'></i> Workout Tracker</a>
+      <a href="diet.html" class="menu-btn"><i class='bx bx-bowl-rice'></i> Diet Tracker</a>
+      <a href="ai.html" class="menu-btn"><i class='bx bx-bot'></i> AI Assistant</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <section class="card">
+      <h2>🎯 Set Your Goals</h2>
+      <p>Adjust your daily health goals to stay on track.</p>
+
+      <label><span class="bold">Daily Sleep Goal (hours):</span>
+        <input type="number" id="calorieGoalInput" placeholder="e.g., 2000">
+      </label> <br>
+
+      <label><span class="bold">Daily Sleep Goal (hours):</span>
+        <input type="number" id="sleepGoalInput" placeholder="e.g., 8">
+      </label> <br>
+
+      <label><span class="bold">Daily Water Goal (liters):</span>
+        <input type="number" id="waterGoalInput" placeholder="e.g., 2">
+      </label> <br>
+
+      <button onclick="saveGoals()" class="btn">
+        <i class='bx bx-save'></i> Save Goals
+      </button>
+
+      <p id="goalStatus" class="highlight"></p>
+
+      <hr>
+      <h3>Current Goals</h3>
+      <ul>
+        <li><span class="bold">Calorie Goal:</span> <span id="calorieGoalDisplay"></span> Cal</li>
+        <li><span class="bold">Sleep Goal:</span> <span id="sleepGoalDisplay"></span> hours</li>
+        <li><span class="bold">Water Goal:</span> <span id="waterGoalDisplay"></span> L</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="scripts/script.js"></script>
+  <script>
+    // Load and show current goals on page load
+    window.addEventListener("DOMContentLoaded", () => {
+      loadData(); // from script.js
+      const summary = getDailySummary();
+
+      document.getElementById("calorieGoalDisplay").textContent = summary.calorieGoal;
+      document.getElementById("sleepGoalDisplay").textContent = summary.sleepHoursGoal;
+      document.getElementById("waterGoalDisplay").textContent = summary.waterIntakeGoal;
+    });
+
+    // Save new goals and update localStorage
+    function saveGoals() {
+      const calGoal = parseInt(document.getElementById("calorieGoalInput").value, 10);
+      const sleepGoal = parseFloat(document.getElementById("sleepGoalInput").value);
+      const waterGoal = parseFloat(document.getElementById("waterGoalInput").value);
+
+      if (!isNaN(calGoal) && !isNaN(sleepGoal) && !isNaN(waterGoal)) {
+        setGoals(calGoal, sleepGoal, waterGoal); // from script.js
+        saveData();
+        document.getElementById("goalStatus").textContent = "✅ Goals updated successfully!";
+
+        // Update display
+        document.getElementById("calorieGoalDisplay").textContent = calGoal;
+        document.getElementById("sleepGoalDisplay").textContent = sleepGoal;
+        document.getElementById("waterGoalDisplay").textContent = waterGoal;
+      } else {
+        document.getElementById("goalStatus").textContent = "⚠️ Please fill in all fields.";
+      }
+    }
+  </script>
+</body>
+</html>

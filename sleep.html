@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sleep Tracker</title>
+  <link rel="icon" href="images/icon.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo"><i class='bx bx-rocket'></i> Astro Tracker</div>
+    
+    <!-- Hamburger icon -->
+    <i class='bx bx-menu' id="menuToggle"></i>
+    
+    <!-- Hidden navigation links -->
+    <nav class="menu-buttons" id="navMenu">
+      <a href="index.html" class="menu-btn"><i class='bx bx-bot'></i> Home</a>
+      <a href="workout.html" class="menu-btn"><i class='bx bx-dumbbell'></i> Workout Tracker</a>
+      <a href="diet.html" class="menu-btn"><i class='bx bx-bowl-rice'></i> Diet Tracker</a>
+      <a href="goals.html" class="menu-btn"><i class='bx bx-medal'></i> Goals</a>
+      <a href="ai.html" class="menu-btn"><i class='bx bx-bot'></i> AI Assistant</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <section class="card">
+      <h2>Sleep Tracker <i class='bx bx-moon' ></i> </h2>
+      <p>Track your bedtime and wake-up time to optimize your circadian rhythm.</p>
+
+      <label><span class="bold">Bedtime:</span> <input type="time" id="bedtime"></label> <br>
+      <label><span class="bold">Wake Time:</span> <input type="time" id="waketime"></label> <br>
+      <button onclick="calculateSleep()" class="btn"><i class='bx bx-calculator' ></i> Calculate Sleep Duration</button>
+
+      <p id="sleepResult" class="highlight"></p>
+    </section>
+  </main>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>

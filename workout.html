@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workout Tracker</title>
+  <link rel="icon" href="images/icon.png">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo"><i class='bx bx-rocket'></i> Astro Tracker</div>
+    
+    <!-- Hamburger icon -->
+    <i class='bx bx-menu' id="menuToggle"></i>
+    
+    <!-- Hidden navigation links -->
+    <nav class="menu-buttons" id="navMenu">
+      <a href="index.html" class="menu-btn"><i class='bx bx-bot'></i> Home</a>
+      <a href="sleep.html" class="menu-btn"><i class='bx bx-moon'></i> Sleep Tracker</a>
+      <a href="diet.html" class="menu-btn"><i class='bx bx-bowl-rice'></i> Diet Tracker</a>
+      <a href="goals.html" class="menu-btn"><i class='bx bx-medal'></i> Goals</a>
+      <a href="ai.html" class="menu-btn"><i class='bx bx-bot'></i> AI Assistant</a>
+    </nav>
+  </header>
+
+  <main class="content">
+    <section class="card">
+      <h2>Workout Tracker <i class='bx bx-dumbbell'></i></h2>
+      <p>Log your workouts and track calories burned.</p>
+
+      <label><span class="bold">Workout Name:</span>
+        <input type="text" id="workoutName" placeholder="e.g., Leg Press">
+      </label> <br>
+
+      <label><span class="bold">Description:</span>
+        <input type="text" id="workoutDescription" placeholder="e.g., 10 reps × 3 sets">
+      </label> <br>
+
+      <label><span class="bold">Calories Burned:</span>
+        <input type="number" id="workoutCalories" placeholder="e.g., 120">
+      </label> <br>
+
+      <button onclick="calculateCalories()" class="btn">
+        <i class='bx bxs-hot'></i> Add Workout
+      </button> <br>
+
+      <p id="calorieResult" class="highlight"></p>
+
+      <table id="workoutTable">
+        <thead>
+          <tr>
+            <th>Workout</th>
+            <th>Description</th>
+            <th>Calories</th>
+          </tr>
+        </thead>
+        <tbody id="calls-body"></tbody>
+      </table>
+    </section>
+  </main>
+
+  <script src="scripts/script.js"></script>
+</body>
+</html>
+
